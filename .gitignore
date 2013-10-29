@@ -73,3 +73,6 @@ salesforce/*/Data/Output/*
 static/global/compass_app_log.txt
 
 ghostdriver.log
+
+# Folder managed by bower
+static/global/js/vendor/

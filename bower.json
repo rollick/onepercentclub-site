@@ -1,0 +1,34 @@
+{
+  "name": "onepercentclub-site",
+  "version": "0.0.0",
+  "homepage": "https://github.com/onepercentclub/onepercentclub-site",
+  "authors": [
+    "Mark Gallop <mark@rollick.id.au>"
+  ],
+  "description": "Frontend packages for 1%Club website",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "static/global/js/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "globalize": "~0.1.1",
+    "ember": "~1.1.2",
+    "bootstrap": "~3.0.0",
+    "handlebars": "~1.0.0",
+    "jquery-ui": "~1.10.3",
+    "requirejs": "2.1.1",
+    "data": "https://github.com/emberjs/data.git#v0.14",
+    "ember-bootstrap": "v0.0.2",
+    "humanize": "~0.0.9",
+    "radio_button.js": "https://raw.github.com/jayferd/ember.js/fae0ae76d4d2e438d0936edba0ec4a0a1c96402b/packages/ember-handlebars/lib/controls/radio_button.js",
+    "ember-radio-button": "https://raw.github.com/jayferd/ember.js/fae0ae76d4d2e438d0936edba0ec4a0a1c96402b/packages/ember-handlebars/lib/controls/radio_button.js",
+    "ember-data-drf2-adapter": "https://github.com/benkonrath/ember-data-drf2-adapter.git"
+  }
+}
