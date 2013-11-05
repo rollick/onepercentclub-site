@@ -20,7 +20,7 @@ matrix:
     - env: DJANGO=https://github.com/django/django/archive/master.zip
 
 before_script:
-  - npm install
+  - npm install --loglevel error
 
 script:
   - python ./manage.py test --settings=onepercentclub.settings.travis -v 2

@@ -31,7 +31,7 @@ pavlov.specify('Project Task Edit View Tests', function() {
             view.set('controller', controller);
             view.submit(event);
 
-            assert(spy.calledOnce).isTrue();
+            assert(spy.calledOnce).isTrue('updateTask was not be called once');
         });
     });
  });

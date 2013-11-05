@@ -40,7 +40,16 @@ pavlov.specify("Project model unit tests", function() {
 
         it('should set getProject correctly', function () {
             build('project').then(function(project) {
-                assert(project.get('getProject') instanceof App.Project).isTrue();
+                // var spy = sinon.spy();
+                // var mock = sinon.mock(App.Project);
+                // mock.expects('find');
+                // mock.verify();
+
+                var spy = sinon.spy(App.Project, 'find');
+                var project = project.get('getProject');
+
+                assert(spy.calledOnce).isTrue();
+                // assert(spy.calledWith(project.get("id"))).isTrue();
             });
         });
 

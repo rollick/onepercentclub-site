@@ -21,7 +21,9 @@
     "grunt-cli": "~0.1.9",
     "grunt-bower-task": "~0.3.2",
     "grunt-hashres": "~0.3.2",
-    "grunt-contrib-uglify": "~0.2.5"
+    "grunt-contrib-uglify": "~0.2.5",
+    "grunt-ember-handlebars": "~0.7.0",
+    "grunt-shell": "~0.5.0"
   },
   "devDependencies": {
     "karma-handlebars-preprocessor": "~0.1.2",
@@ -39,7 +41,8 @@
     "grunt-karma": "~0.6.2",
     "phantomjs": "~1.9.2-2",
     "grunt-es6-module-transpiler": "~0.5.1",
-    "grunt-microlib": "~0.1.1"
+    "grunt-microlib": "~0.1.1",
+    "karma-spec-reporter": "0.0.6"
   },
   "scripts": {
     "build": "grunt build",

@@ -12,13 +12,9 @@ module.exports = function(config) {
       'karma-chrome-launcher',
       'karma-coverage',
       'karma-ember-preprocessor',
-      'karma-phantomjs-launcher'
+      'karma-phantomjs-launcher',
+      'karma-html2js-preprocessor'
     ],
-
-    preprocessors: {
-      // '../../apps/**/templates/*.hbs': 'ember',
-      '../../apps/**/static/**/*.js': ['coverage']
-    },
 
     // frameworks to use
     frameworks: ['qunit'],
@@ -29,44 +25,22 @@ module.exports = function(config) {
       'config/test_env.js',
 
       // Vendor
-      '../../static/build/js/lib/deps.js',
+      '../../static/build/js/lib/vendor_deps.js',
 
       'config/ember_config.js',
 
-      { pattern: '/static/assets/js/vendor/globalize-cultures/globalize.culture.*.js', included: false, served: false },
-
-      // Bluebottle / 1%Club Site Static
-      '../../static/global/js/bluebottle/app.js',
-      '../../static/global/js/bluebottle/presets.js', 
-      '../../static/global/js/bluebottle/utils.js', 
+      '../../static/build/js/app.js',
 
       // Stubs for Bluebottle API
       'config/test_stubs.js',
 
-      // 1%Club Site App
-      '../../apps/**/static/**/wallposts/*.js',
-      '../../apps/**/static/**/blogs/*.js',
-      '../../apps/**/static/**/tasks/*.js',
-      '../../apps/**/static/**/orders/*.js',
-      '../../apps/**/static/**/pages/*.js',
-      '../../apps/**/static/**/projects/*.js',
-      '../../apps/**/static/**/donations/*.js', 
+      // Precompiled Handlebar Templates
+      'templates.js',
 
-      '../../static/global/js/bluebottle/homepage.js', 
-      '../../static/global/js/bluebottle/vouchers.js',
-
-      // Handlebar Templates
-      // Need to do some preprocessing first to get the django processed
-      // Handlebars templates before loading them here!
-      // '../../apps/**/templates/*.hbs',
-
-      // Sion
-      '../../static/build/js/components/sinon/lib/sinon.js',
-      '../../static/build/js/components/sinon/lib/sinon/{assert,test,stub,injector,spy,call}.js',
-      // '../../static/build/js/components/sinon-qunit/lib/*.js',
+      // Test Deps
+      '../../static/build/js/lib/test_deps.js',
 
       // Factories / Fixtures
-      '../../static/build/js/components/ember-data-factory/dist/ember-data-factory-0.0.1.js',
       'factories/**/*_factory.js',
       'fixtures/*.js',
 
@@ -80,8 +54,17 @@ module.exports = function(config) {
 
       // Integration Tests
       'integration/**/helpers.js',
-      'integration/**/*_test.js'
+      'integration/**/*_test.js',
+
+      // Handlebars Templates
+      'templates.html'
     ],
+
+    preprocessors: {
+      'templates.html': ['html2js'],
+      '../../apps/**/static/**/*.js': ['coverage'],
+      '../../static/global/js/bluebottle/**/*.js': ['coverage']
+    },
 
     // list of files to exclude
     exclude: [
@@ -90,7 +73,12 @@ module.exports = function(config) {
 
     // test results reporter to use
     // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-    reporters: ['progress', 'coverage', 'growl'],
+    reporters: ['dots', 'coverage'],
+
+    coverageReporter: {
+      type : 'lcov',
+      dir : 'coverage/'
+    },
 
     // web server port
     port: 9876,

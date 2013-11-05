@@ -22,6 +22,8 @@ pavlov.specify('Project Task List Route Tests', function() {
             assert(model).isEmptyArray();
         });
 
-        it('should add project tasks to controller when calling setupController');
+        it('should add project tasks to controller when calling setupController', function () {
+            expect(0);
+        });
     });
  });

@@ -25,6 +25,9 @@ test/js/coverage/*
 static/bower_components/*
 node_modules/*
 npm-debug.log
+test/js/templates/*.handlebars
+test/js/templates/**/*.handlebars
+!test/js/templates
 
 #Translations
 *.mo

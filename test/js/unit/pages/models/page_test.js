@@ -32,7 +32,7 @@ pavlov.specify("Page model unit tests", function(){
 
         it("should have some properties", function () {
             build('page').then(function(page) {
-                assert(page.url).equals('pages/context.html/pages');
+                assert(page.url).equals('pages');
                 assert(page.get('title')).equals('Bad Prequels');
                 assert(page.get('body')).equals('Episodes I, II, III. Case closed.');
             });

@@ -50,7 +50,7 @@ pavlov.specify("Contact Message model unit tests", function(){
         });
 
         it("should set isSent correctly", function () {
-            build('contactMessage').then(function(contactMessage) {
+            create('contactMessage').then(function(contactMessage) {
                 assert(contactMessage.get('id')).isDefined();
                 assert(contactMessage.get('isSent')).isTrue();
             });

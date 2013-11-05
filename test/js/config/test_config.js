@@ -1,14 +1,14 @@
 document.write('<div id="ember-testing-container"><div id="ember-testing"></div></div>');
 
 App.Store = DS.Store.extend({
-  adapter: DS.FixtureAdapter.extend({})
+  // adapter:  Ember.Test.QUnitAdapter.extend({})
+  adapter: DS.FixtureAdapter.extend()
 });
 
 App.rootElement = '#ember-testing';
 
 App.setupForTesting();
-// App.injectTestHelpers();
-Ember.run(App, App.advanceReadiness);
+App.injectTestHelpers();
 
 function exists(selector) {
   return !!find(selector).length;
