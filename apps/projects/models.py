@@ -178,6 +178,17 @@ class Project(models.Model):
     def get_open_tasks(self):
         return self.task_set.filter(status=Task.TaskStatuses.open).all()
 
+    @property
+    def date_funded(self):
+        try:
+            log = self.projectphaselog_set.get(phase=ProjectPhases.act)
+            return log.created
+        except ProjectPhaseLog.DoesNotExist:
+            # fall back to creation date of the projectresult
+            if self.projectresult:
+                return self.projectresult.created
+        return None
+
     @models.permalink
     def get_absolute_url(self):
         """ Get the URL for the current project. """
@@ -430,11 +441,6 @@ class ProjectResult(models.Model):
     created = CreationDateTimeField(_("created"), help_text=_("When this project was created."))
     updated = ModificationDateTimeField(_('updated'))
 
-    @property
-    def date_funded(self):
-        log = self.project.projectphaselog_set.get(phase=ProjectPhases.act)
-        return log.created
-
 
 class PartnerOrganization(models.Model):
     """
@@ -501,7 +507,9 @@ def log_project_phase(sender, instance, created, **kwargs):
     """ Log the project phases when they change """
     if instance.phase != instance._original_phase or created:
         phase = getattr(ProjectPhases, instance.phase)
-        instance.projectphaselog_set.create(phase=phase)
+        # get or create to handle IntegrityErrors (unique constraints)
+        # manually reverting a project phase causes violations of the constraint
+        instance.projectphaselog_set.get_or_create(phase=phase)
         # set the new phase as 'original', as subsequent saves can occur,
         # leading to unique_constraints being violated (plan_status_status_changed)
         # for example
