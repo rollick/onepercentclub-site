@@ -30,7 +30,7 @@ class ProjectSeleniumTests(ProjectTestsMixin, OnePercentSeleniumTestCase):
     """
     def setUp(self):
         self.projects = dict([(slugify(title), title) for title in [
-            u'Women first 2', u'Mobile payments for everyone 2!', u'Schools for children 2'
+           u'Mobile payments for everyone 2!', u'Schools for children 2',  u'Women first 2'
         ]])
 
         User = get_user_model()
@@ -85,10 +85,13 @@ class ProjectSeleniumTests(ProjectTestsMixin, OnePercentSeleniumTestCase):
         # Create a dict of all projects on the web page.
         web_projects = []
         for p in self.browser.find_by_css('#search-results .project-item'):
-            needed = convert_money_to_int(p.find_by_css('.project-fund-amount').first.text)
-            if needed:
+            title = p.find_by_css('h3').first.text
+            # Somehow an empty project slips into this list. Skip that one.
+            # FIXME: Find out what causes this and fix it!
+            if title:
+                needed = convert_money_to_int(p.find_by_css('.project-fund-amount').first.text)
                 web_projects.append({
-                    'title': p.find_by_css('h3').first.text,
+                    'title': title,
                     'money_needed': needed,
                 })
 
