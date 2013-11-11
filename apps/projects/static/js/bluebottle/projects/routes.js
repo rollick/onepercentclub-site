@@ -122,7 +122,7 @@ App.ProjectPlanRoute = Em.Route.extend({
  * - Manage your project(s)
  */
 
-App.MyProjectListRoute = Em.Route.extend({
+App.MyProjectListRoute = Em.Route.extend(App.ScrollToTop, {
     model: function(params) {
         return App.MyProject.find();
     },
@@ -133,7 +133,7 @@ App.MyProjectListRoute = Em.Route.extend({
 });
 
 
-App.MyPitchNewRoute = Em.Route.extend({
+App.MyPitchNewRoute = Em.Route.extend(App.ScrollToTop, {
     model: function() {
         var store = this.get('store');
         return store.createRecord(App.MyProject);
@@ -270,7 +270,7 @@ App.MyProjectPlanOrganisationRoute = App.MyProjectPlanSubRoute.extend({
         if (!organization) {
             controller.set('organizations', App.MyOrganization.find());
         } else {
-            organization.one('didLoad', function(){
+            Em.run.next(function(){
                 if (organization.get('addresses.length') == 0) {
                     controller.send('addAddress');
                 }

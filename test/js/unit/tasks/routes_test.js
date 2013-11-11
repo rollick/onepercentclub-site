@@ -7,7 +7,6 @@ pavlov.specify('Project Tasks Route Tests', function() {
         });
     });
 
-    /* Disable until we can get it to work again.
     describe('App.ProjectTasksIndexRoute Instance', function () {
 
         var route;
@@ -24,8 +23,8 @@ pavlov.specify('Project Tasks Route Tests', function() {
         });
 
         it('should add project tasks to controller when calling setupController', function () {
-            expect(0);
+            expect(0); // Expect 0 Assertions == Not Implemented
         });
     });
-    */
+    
  });
