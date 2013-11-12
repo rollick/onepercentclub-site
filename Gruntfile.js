@@ -24,7 +24,7 @@ module.exports = function (grunt) {
         options: {
           failOnError: true
         },
-        command: 'rm ./test/js/**/*.handlebars ; python ./parse_templates.py -d ./test/js/templates'
+        command: 'rm -f ./test/js/**/*.handlebars ; python ./parse_templates.py -d ./test/js/templates'
       }
     },
     watch: {

@@ -5,6 +5,7 @@ from django.conf import settings
 from django.template import Context, Template, loader
 from django.utils.translation import ugettext
 import templatetag_handlebars
+import re
 
 from BeautifulSoup import BeautifulSoup
 
@@ -24,7 +25,7 @@ def main(argv):
     try:
         opts, args = getopt.getopt(argv,"hd:",["destdir="])
     except getopt.GetoptError:
-        print 'test.py -d <destdirectory>'
+        print 'parse_templates.py -d <destdirectory>'
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-h':
@@ -33,13 +34,17 @@ def main(argv):
         elif opt in ("-d", "--destdir"):
             destdir = arg
 
-    munged_templates = ''
+    # Template method was returning an empty string if there was a comment (<!--..-->)
+    #  => strip them out before passing to Template below
+    pattern = '\<![ \r\n\t]*(--([^\-]|[\r\n]|-[^\-])*--[ \r\n\t]*)\>'
+    htmlcomments = re.compile(pattern, re.DOTALL)
 
+    munged_templates = ''
     for root, dirs, files in os.walk("apps"):
         for file in files:
             if file.endswith(".hbs"):
                 template_file = open(os.path.join(root, file), 'r')
-                template = Template(template_file.read())
+                template = Template(htmlcomments.sub('', template_file.read()))
                 munged_templates += template.render(Context({}))
                 template_file.close()
 
@@ -47,7 +52,7 @@ def main(argv):
 
     print('Templates written:')
     for tag in soup('script'):
-        file = '%s/%s.handlebars' % (destdir, tag["id"])
+        file = '%s/%s.handlebars' % (destdir, tag["id"].replace('/', '_'))
         f = open(file, 'w')
         f.write(tag.string.encode('utf-8').strip())
         f.close()
