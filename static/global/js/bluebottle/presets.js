@@ -21,14 +21,6 @@ function getCookie(name) {
     return cookieValue;
 }
 
-function setCookie(c_name,value,exdays)
-{
-    var exdate=new Date();
-    exdate.setDate(exdate.getDate() + exdays);
-    var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
-    document.cookie=c_name + "=" + c_value;
-}
-
 var csrf_token = getCookie('csrftoken');
 
 function csrfSafeMethod(method) {
@@ -70,5 +62,9 @@ $.ajaxSetup({
 // https://github.com/francois2metz/html5-formdata
 if (Em.isNone(File)) {
     var File = function(){};
+}
+
+if (Em.isNone(document.head)){
+    document.head = document.getElementsByTagName('head')[0];
 }
 

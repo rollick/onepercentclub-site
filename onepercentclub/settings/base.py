@@ -163,7 +163,8 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.transaction.TransactionMiddleware',
 
     'apps.redirects.middleware.RedirectFallbackMiddleware',
-    'apps.crawlable.middleware.HashbangMiddleware'
+    'apps.crawlable.middleware.HashbangMiddleware',
+    'django_tools.middlewares.ThreadLocal.ThreadLocalMiddleware'
 ]
 
 # Browsers will block our pages from loading in an iframe no matter which site
@@ -217,6 +218,7 @@ INSTALLED_APPS = (
     'polymorphic',
     'registration',
     'filetransfers',
+    'loginas',
 
     # CMS page contents
     'fluent_contents',
@@ -228,6 +230,7 @@ INSTALLED_APPS = (
     'social_auth',
     'statici18n',
     'django.contrib.humanize',
+#    'django_tools',
 
     # Cowry Payments
     'apps.cowry',

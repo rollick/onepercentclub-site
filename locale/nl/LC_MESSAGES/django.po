@@ -3,18 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# gannetson <loek@1procentclub.nl>, 2013
 # dokterbob <mathijs@mathijsfietst.nl>, 2012
+# gannetson <loek@1procentclub.nl>, 2013
+# gannetson <loek@1procentclub.nl>, 2013
+# nieja <niels@1procentclub.nl>, 2013
 # nieja <niels@1procentclub.nl>, 2013
 # onepercentclub <webmaster@1procentclub.nl>, 2013
 msgid ""
 msgstr ""
-"Project-Id-Version: Project Bluebottle\n"
+"Project-Id-Version: onepercentclub-site\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-07 16:07+0100\n"
-"PO-Revision-Date: 2013-11-03 20:21+0000\n"
+"POT-Creation-Date: 2013-11-13 21:32+0100\n"
+"PO-Revision-Date: 2013-11-14 08:00+0000\n"
 "Last-Translator: nieja <niels@1procentclub.nl>\n"
-"Language-Team: Dutch (http://www.transifex.com/projects/p/bluebottle/language/nl/)\n"
+"Language-Team: Dutch (http://www.transifex.com/projects/p/onepercentclub-site/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -43,7 +45,7 @@ msgid ""
 "There was an error while trying to serve the requested page. Please try "
 "again. If the error persists, please contact the webmaster about it. In any "
 "case, we have been notified of this error."
-msgstr "Er heeft zich een interne serverfout voorgedaan tijdens het ophalen van de verzochte pagina. Probeer het nog eens. Als de fout zich blijft voordoen, neem dan contact op met de webmaster. Hoe dan ook zijn wij op de hoogte gebracht van deze fout."
+msgstr "Oh jee.. Er heeft zich een interne serverfout voorgedaan tijdens het ophalen van de verzochte pagina. Probeer het nog eens. Blijft de fout zich voordoen, stuur ons dan een bericht. Hoe dan ook, zijn wij op de hoogte gebracht van deze fout."
 
 #: 500.html:12
 #, python-format
@@ -51,6 +53,136 @@ msgid ""
 "If you need assistance, you may reference this error as "
 "<strong>%(error_id)s</strong>."
 msgstr "Als je hulp nodig hebt kun je naar deze fout verwijzen als <strong>%(error_id)s</strong>."
+
+#: base.html:44
+#, python-format
+msgid "What is 1%%"
+msgstr "Wat is 1%%"
+
+#: base.html:45 base.html.py:106
+#, python-format
+msgid "1%%Projects"
+msgstr "1%%Project"
+
+#: base.html:46 base.html.py:111 accounts/profile_form.html:76
+#, python-format
+msgid "1%%Skills"
+msgstr "1%%Doen"
+
+#: base.html:47 base.html.py:116
+msgid "Get involved"
+msgstr "Doe mee"
+
+#: base.html:96
+#, python-format
+msgid "It all starts with 1%%"
+msgstr "Het begint met 1%%"
+
+#: base.html:100
+#, python-format
+msgid "What is 1%%CLUB?"
+msgstr "Wat is 1%%"
+
+#: base.html:121
+msgid "Start your project"
+msgstr "Start your project"
+
+#: base.html:129
+#, python-format
+msgid "About 1%%Club"
+msgstr "Over 1%%Club"
+
+#: base.html:133
+msgid "Our story"
+msgstr "Ons verhaal"
+
+#: base.html:137
+msgid "Frequently Asked Questions"
+msgstr "Veel gestelde vragen"
+
+#: base.html:141
+msgid "Meet the team"
+msgstr "Ons team"
+
+#: base.html:147 footer.html:13
+msgid "Partners"
+msgstr "Partners"
+
+#: base.html:152
+msgid "Press"
+msgstr "Pers"
+
+#: base.html:157
+#, python-format
+msgid "Work at 1%%CLUB"
+msgstr "Werken bij 1%%Club"
+
+#: base.html:162 footer.html:18 footer.html.py:38
+msgid "Contact"
+msgstr "Contact"
+
+#: base.html:170
+#, python-format
+msgid "Discover 1%%More"
+msgstr "Ontdek 1%%Meer"
+
+#: base.html:174
+#, python-format
+msgid "1%%Business"
+msgstr "1%%Business"
+
+#: base.html:179
+#, python-format
+msgid "1%%Blog"
+msgstr "1%%Blog"
+
+#: base.html:184
+#, python-format
+msgid "1%%Github"
+msgstr "1%%Github"
+
+#: base.html:193
+#, python-format
+msgid "1%%Social"
+msgstr "1%%Social"
+
+#: base.html:228 base.html.py:235 accounts/signup.html:6
+#, python-format
+msgid "Join 1%%Club"
+msgstr "Doe mee met 1%%Club"
+
+#: base.html:229
+#, python-format
+msgid ""
+"1%%Club is the global crowdfunding and crowdsourcing platform where you can "
+"share a little and change the world, in your very own way. Pick any project "
+"you like, support it with 1%% of your knowledge, money or time and follow "
+"the progress online. "
+msgstr "1%%Club is het crowdfunding en crowdsourcing platform waar je, door een klein beetje te delen, een wereld van verschil kan maken. Kies een project, steun het met 1%% van je geld, kennis of tijd en volg de voortgang."
+
+#: base.html:231
+msgid "Select a project or task"
+msgstr "Kies een project"
+
+#: base.html:232
+msgid "Share your skills or money"
+msgstr "Steun het met je tijd, geld of kennis"
+
+#: base.html:233
+msgid "See direct results"
+msgstr "Zie direct resultaat"
+
+#: base.html:246
+msgid "General Conditions"
+msgstr "Algemene voorwaarden"
+
+#: base.html:247
+msgid "Privacy Policy"
+msgstr "Privacy policy"
+
+#: base.html:251
+msgid "Give us feedback"
+msgstr "Geef ons feedback"
 
 #: footer.html:6
 msgid "Menu"
@@ -80,10 +212,6 @@ msgstr "Leden"
 msgid "Organizations"
 msgstr "Organisaties"
 
-#: footer.html:13
-msgid "Partners"
-msgstr "Partners"
-
 #: footer.html:14
 msgid "Business"
 msgstr "Business"
@@ -99,10 +227,6 @@ msgstr "In de media"
 #: footer.html:17 footer.html.py:37
 msgid "FAQ"
 msgstr "FAQ"
-
-#: footer.html:18 footer.html.py:38
-msgid "Contact"
-msgstr "Contact"
 
 #: footer.html:21
 msgid "News"
@@ -148,7 +272,7 @@ msgstr "Gelukt!"
 
 #: accounts/login.html:11
 msgid "(Welcome back friend)"
-msgstr "(Welcome terug)"
+msgstr "(Welkom terug)"
 
 #: accounts/login.html:12
 msgid "Login here with your email address and password"
@@ -169,7 +293,7 @@ msgstr "Mijn 1%%"
 
 #: accounts/nav.html:19
 msgid "My profile & settings"
-msgstr "Mijn profiel & settings"
+msgstr "Mijn profiel & instellingen"
 
 #: accounts/nav.html:25
 msgid "My Donations"
@@ -225,11 +349,6 @@ msgstr "Website"
 msgid "Location"
 msgstr "Locatie"
 
-#: accounts/profile_form.html:76
-#, python-format
-msgid "1%%Skills"
-msgstr "1%%Doen"
-
 #: accounts/profile_form.html:77
 #, python-format
 msgid ""
@@ -258,11 +377,6 @@ msgstr "Doet mee met 1%%Club omdat"
 msgid "Website"
 msgstr "Website"
 
-#: accounts/signup.html:6
-#, python-format
-msgid "Join 1%%Club"
-msgstr "Doe mee met 1%%Club"
-
 #: accounts/signup.html:8
 #, python-format
 msgid ""
@@ -271,7 +385,7 @@ msgid ""
 "support smart ideas from people in developing countries. We do this in a "
 "new, open way, believing in the power of collaboration boosted by today's "
 "technical possibilities. If we all share a little, we can change the world."
-msgstr "1%%Club is hét crowdfunding en crowdsourcing platform waar je, door een klein beetje te delen, een wereld van verschil kan maken. We werken samen met ons wereldwijde netwerk om slimme ideeën van mensen in ontwikkelingslanden te realiseren. En dat kan dus al met 1% van je tijd, kennis of geld. If we all share a little, we can change the world!"
+msgstr "1%%Club is hét crowdfunding en crowdsourcing platform waar je, door een klein beetje te delen, een wereld van verschil kan maken. We werken samen met ons wereldwijde netwerk om slimme ideeën van mensen in ontwikkelingslanden te realiseren. En dat kan dus al met 1%% van je tijd, kennis of geld. If we all share a little, we can change the world!"
 
 #: accounts/signup.html:14
 msgid "Thanks for signing up!"
@@ -289,7 +403,7 @@ msgid ""
 "\n"
 "    By joining 1%%Club I hereby agree to the <a %(action)s href=\"%(href)s\"> 1%%Club Terms of service</a>\n"
 "    "
-msgstr "\n⏎\nDoor mee te doen met 1%%Club ga ik akkoord met de <a %(action)s href=\"%(href)s\"> 1%%Club Algemene Voorwaarden</a>⏎"
+msgstr "\n\nDoor mee te doen met 1%%Club ga ik akkoord met de <a %(action)s href=\"%(href)s\"> 1%%Club Algemene Voorwaarden</a>"
 
 #: accounts/signup.html:31
 msgid "Have an account?"
@@ -337,7 +451,7 @@ msgstr "activeer profiel"
 #: registration/activation_email.html:56
 #, python-format
 msgid "Your activation code will expire in %(expiration_days)s days."
-msgstr "Je activatiecode verloopt in %(expiration_days)s dagen. "
+msgstr "Je activatiecode verloopt over %(expiration_days)s dagen. "
 
 #: registration/logged_out.html:9
 msgid "Logged out."

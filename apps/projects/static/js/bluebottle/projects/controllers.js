@@ -233,6 +233,7 @@ App.MyProjectPlanLocationController = Em.ObjectController.extend(App.Editable, {
     nextStep: 'myProjectPlan.media'
 });
 App.MyProjectPlanSubmitController = Em.ObjectController.extend(App.Editable, {});
+
 App.MyProjectPlanMediaController = Em.ObjectController.extend(App.Editable, {
     nextStep: 'myProjectPlan.organisation'
 });
@@ -308,55 +309,32 @@ App.MyProjectPlanOrganisationController = Em.ObjectController.extend(App.Editabl
         if (this.get('organization.isDirty')) {
             return true;
         }
-        if (this.get('address.isDirty')) {
-            return true;
-        }
         return false;
-    }.property('organization.isLoaded', 'organization.isDirty', 'address.isDirty'),
+    }.property('organization.isLoaded', 'organization.isDirty'),
 
     actions: {
         updateRecordOnServer: function(){
             var controller = this;
             var model = this.get('model');
             var organization = model.get('organization');
-            var address = this.get('address');
-            model.one('didUpdate', function(){
-                // Connected an organization to ProjectPlan.
-                controller.transitionToRoute(controller.get('nextStep'));
-            });
+
             organization.one('didUpdate', function(){
                 // Updated organization info.
                 controller.transitionToRoute(controller.get('nextStep'));
+                $("html, body").animate({ scrollTop: 0 }, 600);
             });
-            if (address) {
-                address.one('didUpdate', function(){
-                    // Updated address info.
-                    controller.transitionToRoute(controller.get('nextStep'));
-                });
-            }
+            organization.one('didCreate', function(){
+                // Create organization info.
+                controller.transitionToRoute(controller.get('nextStep'));
+                $("html, body").animate({ scrollTop: 0 }, 600);
+            });
             model.transaction.commit();
         },
-
-        addAddress: function(){
-            // Use the same transaction as the projectplan
-            var organization =  this.get('model.organization');
-            var transaction =  organization.transaction;
-            var address = transaction.createRecord(App.MyOrganizationAddress);
-            organization.set('addresses', address);
-        },
-
-        removeAddress: function(address){
-            address.deleteRecord();
-        },
-
         selectOrganization: function(org){
             // Use the same transaction as the projectplan
             var transaction =  this.get('model').transaction;
             transaction.add(org);
-            this.set('model.organization', org);
-            if (this.get('model.organization.addresses.length') == 0) {
-                this.send('addAddress');
-            }
+            this.set('organization', org);
         },
 
         createNewOrganization: function() {
@@ -364,10 +342,6 @@ App.MyProjectPlanOrganisationController = Em.ObjectController.extend(App.Editabl
             var transaction = this.get('store').transaction();
             var org = transaction.createRecord(App.MyOrganization, {name: controller.get('model.title')});
             this.set('model.organization', org);
-
-            transaction.commit();
-            // TODO: This does not work.
-            this.send('addAddress');
         }
     }
 });
@@ -431,6 +405,13 @@ App.MyProjectPlanBudgetController = Em.ObjectController.extend(App.Editable, {
         });
         return dirty;
     }.property('isDirty', 'budgetLines.@each.isDirty'),
+
+    // only show the budget errors if no budget was entered on the first display
+    showBudgetError: function(){
+        var validBudget = this.get('validBudget');
+        var totalBudget = this.get('totalBudget');
+        return (totalBudget && !validBudget);
+    }.property('validBudget', 'totalBudget'),
 
     actions: {
         updateRecordOnServer: function(){
