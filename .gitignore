@@ -48,6 +48,8 @@ test/js/templates/**/*.handlebars
 !/static/media/.gitkeep
 /static/assets/*
 !/static/assets/.gitkeep
+/private/*
+!/private/.gitkeep
 
 # Local settings overrides
 onepercentclub/settings/local.py

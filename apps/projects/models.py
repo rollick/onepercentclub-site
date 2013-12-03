@@ -84,7 +84,15 @@ class ProjectManager(models.Manager):
 
         if field == 'money_needed':
             qs = self.get_query_set()
-            qs = qs.order_by('projectcampaign__money_asked')
+            qs = qs.order_by('projectcampaign__money_needed')
+            qs = qs.filter(projectcampaign__money_needed__gt=0)
+            qs = qs.filter(phase='campaign')
+            return qs
+
+        if field == 'newest':
+            qs = self.get_query_set()
+            qs = qs.order_by('projectcampaign__money_needed')
+            qs = qs.filter(projectcampaign__money_needed__gt=0)
             qs = qs.filter(phase='campaign')
             return qs
 
@@ -115,6 +123,8 @@ class Project(models.Model):
     updated = ModificationDateTimeField()
 
     popularity = models.FloatField(null=False, default=0)
+
+    is_campaign = models.BooleanField(default=False, help_text=_("Project is part of a campaign and gets special promotion."))
 
     objects = ProjectManager()
 

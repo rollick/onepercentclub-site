@@ -8,7 +8,7 @@ App.AnimateProgressMixin = Em.Mixin.create({
             width = 100 * donated / asked;
             width += '%';
         }
-        this.$('.slider-progress').animate({'width': width}, 1000);
+        this.$('.slider-progress').animate({'width': width}, 3000);
     }
 });
 
@@ -20,15 +20,17 @@ App.ProjectSupporterView = Em.View.extend({
     templateName: 'project_supporter',
     tagName: 'li',
     didInsertElement: function(){
-        this.$('a').popover({trigger: 'hover', placement: 'top', width: '100px'})
+        this.$('a').popover({trigger: 'hover', placement: 'top'})
     }
 });
-
 
 App.ProjectSupporterListView = Em.View.extend({
     templateName: 'project_supporter_list'
 });
 
+App.ProjectDonationView = Em.View.extend({
+    templateName: 'project_donation'
+});
 
 App.ProjectListView = Em.View.extend(App.ScrollInView, {
     templateName: 'project_list'

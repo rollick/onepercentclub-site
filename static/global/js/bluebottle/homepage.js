@@ -46,7 +46,9 @@ App.HomePage = DS.Model.extend({
     projects: DS.hasMany('App.ProjectPreview'),
     slides: DS.hasMany('App.Slide'),
     quotes: DS.hasMany('App.Quote'),
-    impact: DS.belongsTo('App.Impact')
+    impact: DS.belongsTo('App.Impact'),
+    campaign: DS.belongsTo('App.Campaign'),
+    fundraisers: DS.hasMany('App.FundRaiser')
 
 });
 
@@ -54,7 +56,9 @@ App.Adapter.map('App.HomePage', {
     projects: {embedded: 'load'},
     slides: {embedded: 'load'},
     quotes: {embedded: 'load'},
-    impact: {embedded: 'load'}
+    impact: {embedded: 'load'},
+    campaign: {embedded: 'load'},
+    fundraisers: {embedded: 'load'}
 });
 
 
@@ -63,7 +67,9 @@ App.Adapter.map('App.HomePage', {
 App.HomeController = Ember.ObjectController.extend({
     needs: ['currentUser'],
 
-    nextProject: function() {
+    isCampaignHomePage: false,
+
+    nextProject: function() { // TODO: similar thing for fundraisers?
         var projects = this.get('projects');
 
         this.incrementProperty('projectIndex');
@@ -97,6 +103,19 @@ App.HomeController = Ember.ObjectController.extend({
 
     loadQuote: function() {
         this.set('quote', this.get('quotes').objectAt(this.get('quoteIndex')));
+    },
+
+    checkCampaignHomePage: function() {
+        if(this.get('campaign')){
+            this.set('isCampaignHomePage', true);
+        }
+    },
+
+    actions: {
+        scrollToFundraisers: function() {
+            var offset = $('#home-crazy-campaign-fundraisers').offset().top;
+            $("html, body").animate({ scrollTop: offset }, 600);
+        }
     }
 });
 
@@ -104,17 +123,16 @@ App.HomeController = Ember.ObjectController.extend({
 
 App.HomeBannerView = Ember.View.extend({
     templateName: 'home_banner',
-    
+
     didInsertElement: function() {
+    
+        // Carousel
         this.$().find('.carousel').unslider({
             dots: true,
             fluid: true,
             delay: 10000
         });
-    },
-    
-    
-    
+    }
 });
 
 
@@ -172,3 +190,83 @@ App.HomeImpactView = Ember.View.extend({
 });
 
 
+App.HomeFundraisersView = Ember.View.extend({
+    templateName: 'home_fundraisers'
+});
+
+function go(){
+    $(document).bind("keydown", function(e){
+
+        var trackOffset = $('#track').offset().left;
+        if (e.keyCode == 71) {
+            $('#car1').css({'left' : "+=5px"});
+        }
+        if (e.keyCode == 80) {
+            $('#car2').css({'left' : "+=5px"});
+        }
+
+        if (($('#car2').offset().left - trackOffset) >= 1060) {
+            $('#race').html("Great race! You'd be a great fund-racer too!");
+            $('.message-board').css({'background-color': '#FF619A', 'color': 'white'});
+            $(document).unbind("keydown");
+            $('.message-board').html('PINK WINS!');
+        }
+        if (($('#car1').offset().left - trackOffset) >= 1060) {
+            $('#race').html("Great race! You'd be a great fund-racer too!");
+            $('.message-board').css({'background-color': '#00C051', 'color': 'white'});
+            $(document).unbind("keydown");
+            $('.message-board').html('GREEN WINS!');
+        }
+    });
+}
+
+var time = 10;
+function countdown() {
+
+    $('.message-board').html(time);
+    if (time<=0) {
+        $('.message-board').removeClass('digit');
+        $('.message-board').html('GO');
+        go();
+    } else {
+        setTimeout('countdown()', 1000);
+    }
+    time--;
+}
+
+
+App.HomeCampaignView = Ember.View.extend({
+    templateName: 'home_campaign_block',
+    
+    didInsertElement: function() {
+    
+        // Countdown for campaign
+        var deadline = this.get('controller.campaign.end');
+        
+        this.$().find('#countdown').countdown({
+            until: deadline,
+            format: 'HMS',
+            whichLabels: null,
+            timeSeparator: ':',
+            layout: $('#countdown').html()
+        });
+
+        var html = '<section class="l-wrapper"><div class="hasCountdown"><span class="message-board"></span></div><h3 id="race">[P] for Pink, [G] for Green</h3><h4>Ready to race? </h4><div id="track"><div id="start"></div><div id="finish"></div><div id="car1"></div><div id="car2"></div></div></section>';
+
+        var typeKeys = [67, 82, 65, 90, 89];
+        var something_index = 0;
+
+        $(document).bind("keydown", function (e) {
+            if (e.keyCode === typeKeys[something_index++]) {
+                if (something_index === typeKeys.length) {
+                    $('#home-crazy-campaign-header').html(html);
+                    $('.message-board').html('Get ready!');
+                    setTimeout('countdown()', 2000);
+                }
+            } else {
+                something_index = 0;
+            }
+        });
+
+    }
+});

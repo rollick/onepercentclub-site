@@ -15,37 +15,16 @@
 	}
 	
     #new-website .carousel-image {
-        background: image-url("pages/homepage/home-back-new-website.gif") transparent no-repeat  120px 30%;
+        background: image-url("pages/homepage/home-back-new-website.png") transparent no-repeat  120px 30%;
     }
     
     #find-project .carousel-image {
         background: image-url("pages/homepage/home-back-find-project.jpg") transparent no-repeat 0 0;
     }
     
-    #befriend .carousel-image {
-        background: image-url("pages/homepage/home-back-befriend.gif") transparent no-repeat 120px 30%;
-    }
-    
     #smart-idea .carousel-image {
-        background: image-url("pages/homepage/home-back-smart-idea.gif") transparent no-repeat 120px 30%;
+        background: image-url("pages/homepage/home-back-smart-idea.png") transparent no-repeat 120px 30%;
     }
-    
-    // TODO FIX: Hack to show resonsive background	
-    .carousel-content {
-        z-index: 2;
-    }
-    				
-	.carousel-image {
-		@include clear;
-		position: relative;
-		float: right;
-		top: 0;
-		overflow: auto;
-		width: 50%;
-		height: 450px;
-		top: -500px;
-		z-index: 1;
-	}
 	
 	// Projects
 	.project-slider {

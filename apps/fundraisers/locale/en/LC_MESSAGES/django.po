@@ -1,0 +1,305 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-12-02 09:52+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: models.py:13
+msgid "initiator"
+msgstr ""
+
+#: models.py:13
+msgid "Project owner"
+msgstr ""
+
+#: models.py:14
+msgid "project"
+msgstr ""
+
+#: models.py:16
+msgid "title"
+msgstr ""
+
+#: models.py:17
+msgid "description"
+msgstr ""
+
+#: models.py:18
+msgid "picture"
+msgstr ""
+
+#: models.py:18
+msgid "Minimal of 800px wide"
+msgstr ""
+
+#: models.py:21
+msgid "amount (in cents)"
+msgstr ""
+
+#: models.py:25
+msgid "created"
+msgstr ""
+
+#: models.py:25
+msgid "When this fundraiser was created."
+msgstr ""
+
+#: models.py:26
+msgid "updated"
+msgstr ""
+
+#: models.py:27
+msgid "deleted"
+msgstr ""
+
+#: models.py:43
+msgid "{fundraiser} for {project}"
+msgstr ""
+
+#: models.py:61
+msgid "{title} {{URL}} via @{twitter_handle}"
+msgstr ""
+
+#: views.py:29
+#, python-format
+msgid "No %(verbose_name)s found matching the query"
+msgstr ""
+
+#: templates/fundraisers.hbs:15 templates/fundraisers.hbs.py:370
+#, python-format
+msgid "My 1%%"
+msgstr ""
+
+#: templates/fundraisers.hbs:15 templates/fundraisers.hbs.py:166
+#: templates/fundraisers.hbs:370
+msgid "Fundraisers"
+msgstr ""
+
+#: templates/fundraisers.hbs:22
+msgid "Preview fundraiser page"
+msgstr ""
+
+#: templates/fundraisers.hbs:53
+msgid "Amount & deadline"
+msgstr ""
+
+#: templates/fundraisers.hbs:54
+msgid "Be realistic and...show ambition!"
+msgstr ""
+
+#: templates/fundraisers.hbs:74
+msgid "Yes, you can!"
+msgstr ""
+
+#: templates/fundraisers.hbs:76
+msgid ""
+"\n"
+"                            What's your fundraising plan? Make it concrete & exciting!\n"
+"                            "
+msgstr ""
+
+#: templates/fundraisers.hbs:86
+msgid "Create"
+msgstr ""
+
+#: templates/fundraisers.hbs:91
+msgid "New fundraiser"
+msgstr ""
+
+#: templates/fundraisers.hbs:93
+msgid ""
+"\n"
+"                            You need to be logged in to start fundraising.\n"
+"                            "
+msgstr ""
+
+#: templates/fundraisers.hbs:99 templates/fundraisers.hbs.py:146
+#: templates/fundraisers.hbs:412
+msgid "Login"
+msgstr ""
+
+#: templates/fundraisers.hbs:99
+msgid "or"
+msgstr ""
+
+#: templates/fundraisers.hbs:99
+msgid "register"
+msgstr ""
+
+#: templates/fundraisers.hbs:99
+msgid "to become a fundraiser."
+msgstr ""
+
+#: templates/fundraisers.hbs:104 templates/fundraisers.hbs.py:417
+msgid "Fundraising for project"
+msgstr ""
+
+#: templates/fundraisers.hbs:105
+msgid "You'll be fundraising for this project"
+msgstr ""
+
+#: templates/fundraisers.hbs:126 templates/fundraisers.hbs.py:138
+msgid "Edit fundraiser"
+msgstr ""
+
+#: templates/fundraisers.hbs:133
+msgid "Save"
+msgstr ""
+
+#: templates/fundraisers.hbs:140
+msgid ""
+"\n"
+"                                You can only make a fundraiser if you are logged in and the owner of this fundraiser.\n"
+"                            "
+msgstr ""
+
+#: templates/fundraisers.hbs:146 templates/fundraisers.hbs.py:412
+msgid "or become a"
+msgstr ""
+
+#: templates/fundraisers.hbs:146 templates/fundraisers.hbs.py:412
+msgid "member"
+msgstr ""
+
+#: templates/fundraisers.hbs:146 templates/fundraisers.hbs.py:412
+msgid "to start a fundraiser."
+msgstr ""
+
+#: templates/fundraisers.hbs:151
+msgid "You rock!"
+msgstr ""
+
+#: templates/fundraisers.hbs:152
+msgid "Because you're fundraising for this project:"
+msgstr ""
+
+#: templates/fundraisers.hbs:177
+msgid "Become a fundraiser"
+msgstr ""
+
+#: templates/fundraisers.hbs:191 templates/fundraisers.hbs.py:294
+msgid "of"
+msgstr ""
+
+#: templates/fundraisers.hbs:193 templates/fundraisers.hbs.py:296
+msgid "raised"
+msgstr ""
+
+#: templates/fundraisers.hbs:229
+msgid "Fundraising for"
+msgstr ""
+
+#: templates/fundraisers.hbs:243
+msgid "Edit Fundraiser"
+msgstr ""
+
+#: templates/fundraisers.hbs:244
+msgid "View Donations"
+msgstr ""
+
+#: templates/fundraisers.hbs:258
+msgid "Fundraiser"
+msgstr ""
+
+#: templates/fundraisers.hbs:266
+msgid "Support"
+msgstr ""
+
+#: templates/fundraisers.hbs:269
+msgid "Project Funded"
+msgstr ""
+
+#: templates/fundraisers.hbs:287
+msgid "days to go"
+msgstr ""
+
+#: templates/fundraisers.hbs:306
+msgid "Supporters"
+msgstr ""
+
+#: templates/fundraisers.hbs:306
+msgid "Total"
+msgstr ""
+
+#: templates/fundraisers.hbs:343
+msgid "Show more"
+msgstr ""
+
+#: templates/fundraisers.hbs:343
+msgid "more"
+msgstr ""
+
+#: templates/fundraisers.hbs:370
+msgid "Donations"
+msgstr ""
+
+#: templates/fundraisers.hbs:375
+msgid "Back to fundraiser"
+msgstr ""
+
+#: templates/fundraisers.hbs:384 templates/fundraisers.hbs.py:404
+msgid "Donation overview"
+msgstr ""
+
+#: templates/fundraisers.hbs:386
+msgid ""
+"\n"
+"                            The people below already supported your fundraise action\n"
+"                            "
+msgstr ""
+
+#: templates/fundraisers.hbs:399
+msgid "Awww. No donations yet!"
+msgstr ""
+
+#: templates/fundraisers.hbs:406
+msgid ""
+"\n"
+"                                You are not authorized to view the donations.\n"
+"                            "
+msgstr ""
+
+#: templates/fundraisers.hbs:418
+msgid "You are fundraising for this project"
+msgstr ""
+
+#: templates/fundraisers.hbs:436
+msgid "Loading projects"
+msgstr ""
+
+#: templates/fundraisers.hbs:461
+msgid "View public page"
+msgstr ""
+
+#: templates/fundraisers.hbs:468
+msgid "Edit"
+msgstr ""
+
+#: templates/generic/form_charfield.html:3 templates/generic/form_field.html:3
+#: templates/generic/form_imagefield.html:4
+#, python-format
+msgid "%(help_text)s"
+msgstr ""
+
+#: templates/generic/form_charfield.html:4 templates/generic/form_field.html:4
+#: templates/generic/form_imagefield.html:5
+#, python-format
+msgid "%(title)s"
+msgstr ""
+
+#: templates/generic/form_imagefield.html:10
+msgid "Upload picture"
+msgstr ""
